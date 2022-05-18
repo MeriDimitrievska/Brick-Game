@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,8 @@ namespace BrickGame
 {
     public partial class Form1 : Form
     {
+        SoundPlayer gameOverSong = new SoundPlayer(@"C:\Users\User\Brick-Game\BrickGame\WMPLib\game-over-sound-effect.wav");
+        SoundPlayer soundPlayer = new SoundPlayer(@"C:\Users\User\Brick-Game\BrickGame\WMPLib\Brick Game Tetris 9999 in 1 Music - Sounds.wav");
 
         bool goLeft;
         bool goRight;
@@ -31,10 +34,13 @@ namespace BrickGame
             InitializeComponent();
             //setupGame();
             placeBlocks();
+           
+            
         }
 
         private void setupGame()
         {
+            
             isGameOver=false;
             score = 0;
             ballx = 5;
@@ -48,7 +54,8 @@ namespace BrickGame
             player.Left = 389;
             player.Top = 475;
 
-
+            gameOverSong.Stop();
+            soundPlayer.Play();
             gameTimer.Start();
 
             foreach(Control x in this.Controls)
@@ -67,6 +74,9 @@ namespace BrickGame
             gameTimer.Stop();
 
             txtScore.Text = "Score: " + score + " " + message;
+            soundPlayer.Stop();
+            gameOverSong.Play();
+            
         }
 
         private void placeBlocks()
