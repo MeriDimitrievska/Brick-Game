@@ -29,17 +29,25 @@ namespace BrickGame
         public Form1()
         {
             InitializeComponent();
-            setupGame();
+            //setupGame();
             placeBlocks();
         }
 
         private void setupGame()
         {
+            isGameOver=false;
             score = 0;
             ballx = 5;
             bally = 5;
             playerSpeed = 12;
             txtScore.Text = "Score: " + score;
+
+
+            ball.Left=428;
+            ball.Top = 454;
+            player.Left = 389;
+            player.Top = 475;
+
 
             gameTimer.Start();
 
@@ -97,6 +105,14 @@ namespace BrickGame
         }
 
 
+        private void removeBlocks()
+        {
+            foreach(PictureBox p in blocksArray)
+            {
+                this.Controls.Remove(p);
+            }
+        }
+
         private void mainGameTimerEvent(object sender, EventArgs e)
         {
             txtScore.Text = "Score: " + score; 
@@ -125,6 +141,8 @@ namespace BrickGame
 
             if(ball.Bounds.IntersectsWith(player.Bounds))
             {
+                //ball.Top = 698;
+
                 bally *= -1; // bally = rnd.Next(5, 12) * -1;
 
                 if (ballx<0)
@@ -152,12 +170,12 @@ namespace BrickGame
 
             if(score == 36)
             {
-                gameOver("You win!");
+                gameOver("You win! Press Enter to Play Again.");
             }
 
             if(ball.Top >580)
             {
-                gameOver("You lose!");
+                gameOver("You lose! Press Enter to try again.");
             }
 
         }
@@ -188,6 +206,12 @@ namespace BrickGame
             if (e.KeyCode == Keys.Right)
             {
                 goRight = false;
+            }
+
+            if(e.KeyCode==Keys.Enter && isGameOver == true)
+            {
+                removeBlocks();
+                placeBlocks();
             }
 
         }
