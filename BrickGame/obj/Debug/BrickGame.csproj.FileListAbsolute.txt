@@ -1,0 +1,11 @@
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\bin\Debug\BrickGame.exe.config
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\bin\Debug\BrickGame.exe
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\bin\Debug\BrickGame.pdb
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\obj\Debug\BrickGame.csproj.AssemblyReference.cache
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\obj\Debug\BrickGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\obj\Debug\BrickGame.Form1.resources
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\obj\Debug\BrickGame.Properties.Resources.resources
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\obj\Debug\BrickGame.csproj.GenerateResource.cache
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\obj\Debug\BrickGame.csproj.CoreCompileInputs.cache
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\obj\Debug\BrickGame.exe
+C:\Users\boshk\source\repos\Brick-Game\BrickGame\obj\Debug\BrickGame.pdb
