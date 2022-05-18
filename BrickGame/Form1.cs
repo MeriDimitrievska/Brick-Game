@@ -24,12 +24,13 @@ namespace BrickGame
 
         Random rnd = new Random();
 
-
+        PictureBox[] blocksArray;
 
         public Form1()
         {
             InitializeComponent();
             setupGame();
+            placeBlocks();
         }
 
         private void setupGame()
@@ -52,9 +53,53 @@ namespace BrickGame
 
         }
 
+        private void gameOver(String message)
+        {
+            isGameOver = true;
+            gameTimer.Stop();
+
+            txtScore.Text = "Score: " + score + " " + message;
+        }
+
+        private void placeBlocks()
+        {
+            blocksArray = new PictureBox[36];
+            int a = 0;
+            int top = 50;
+            int left = 100;
+        
+            for(int i=0; i<blocksArray.Length; i++)
+            {
+                blocksArray[i] = new PictureBox();
+                blocksArray[i].Height = 32;
+                blocksArray[i].Width = 100;
+                blocksArray[i].Tag = "blocks";
+                blocksArray[i].BackColor = Color.White;
+
+                if(a==6)
+                {
+                    top = top + 50;
+                    left = 100;
+                    a = 0;
+                }
+
+                if(a<6)
+                {
+                    a++;
+                    blocksArray[i].Left = left;
+                    blocksArray[i].Top = top;
+                    this.Controls.Add(blocksArray[i]);
+                    left += 130;
+                }
+            }
+
+            setupGame();
+        }
+
 
         private void mainGameTimerEvent(object sender, EventArgs e)
         {
+            txtScore.Text = "Score: " + score; 
             if(goLeft == true && player.Left > 0)
             {
                 player.Left -= playerSpeed;
@@ -81,6 +126,38 @@ namespace BrickGame
             if(ball.Bounds.IntersectsWith(player.Bounds))
             {
                 bally = rnd.Next(5, 12) * -1;
+
+                if(ballx<0)
+                {
+                    ballx = rnd.Next(5, 12) * -1;
+                }
+                else
+                {
+                    ballx = rnd.Next(5, 12);
+                }
+            }
+
+            foreach(Control control in this.Controls)
+            {
+                if(control is PictureBox && (string)control.Tag=="blocks")
+                {
+                    if(ball.Bounds.IntersectsWith(control.Bounds))
+                    {
+                        score += 1;
+                        bally = - bally;
+                        this.Controls.Remove(control);
+                    }
+                }
+            }
+
+            if(score == 36)
+            {
+                gameOver("You win!");
+            }
+
+            if(ball.Top >580)
+            {
+                gameOver("You lose!");
             }
 
         }
