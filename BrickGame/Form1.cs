@@ -63,7 +63,7 @@ namespace BrickGame
 
         private void placeBlocks()
         {
-            blocksArray = new PictureBox[36];
+            blocksArray = new PictureBox[36];  
             int a = 0;
             int top = 50;
             int left = 100;
@@ -105,7 +105,7 @@ namespace BrickGame
                 player.Left -= playerSpeed;
             }
 
-            if(goRight == true && player.Left < 700)
+            if(goRight == true && player.Left < 832)
             {
                 player.Left += playerSpeed;
             }
@@ -113,7 +113,7 @@ namespace BrickGame
             ball.Left += ballx;
             ball.Top += bally;
 
-            if(ball.Left < 0 || ball.Left > 784)
+            if(ball.Left < 0 || ball.Left > 920) 
             {
                 ballx = -ballx;
             }
@@ -125,9 +125,9 @@ namespace BrickGame
 
             if(ball.Bounds.IntersectsWith(player.Bounds))
             {
-                bally = rnd.Next(5, 12) * -1;
+                bally *= -1; // bally = rnd.Next(5, 12) * -1;
 
-                if(ballx<0)
+                if (ballx<0)
                 {
                     ballx = rnd.Next(5, 12) * -1;
                 }
@@ -191,5 +191,6 @@ namespace BrickGame
             }
 
         }
+
     }
 }
