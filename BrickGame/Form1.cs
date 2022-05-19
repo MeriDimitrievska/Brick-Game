@@ -42,6 +42,7 @@ namespace BrickGame
 
         private void setupGame()
         {
+            soundPlayer.Play();
             
             isGameOver=false;
             score = 0;
@@ -82,6 +83,7 @@ namespace BrickGame
 
         private void placeBlocks()
         {
+            
             blocksArray = new PictureBox[36];  
             int a = 0;
             int top = 50;
@@ -184,7 +186,7 @@ namespace BrickGame
                 gameOver("You win! Press Enter to Play Again.");
             }
 
-            if(ball.Top >580)
+            if(ball.Top >475)
             {
                 gameOver("You lose! Press Enter to try again.");
             }
