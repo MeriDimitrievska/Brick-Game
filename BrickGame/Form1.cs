@@ -223,8 +223,10 @@ namespace BrickGame
 
             if(e.KeyCode==Keys.Enter && isGameOver == true)
             {
+                
                 removeBlocks();
                 placeBlocks();
+                soundPlayer.Play();
             }
 
         }
