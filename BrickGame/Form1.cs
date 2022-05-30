@@ -78,7 +78,16 @@ namespace BrickGame
             txtScore.Text = "Score: " + score + " " + message;
             soundPlayer.Stop();
             gameOverSong.Play();
-            
+            DialogResult dialogResult = MessageBox.Show("Do you want to start a new game?", "New Game", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                removeBlocks();
+                placeBlocks();
+                soundPlayer.Play();
+            }
+            else
+                // txtScore.Text = "Thank you for playing !";
+                Application.Exit();
         }
 
         private void placeBlocks()
@@ -183,12 +192,12 @@ namespace BrickGame
 
             if(score == 36)
             {
-                gameOver("You win! Press Enter to Play Again.");
+                gameOver("You win!");
             }
 
             if(ball.Top >475)
             {
-                gameOver("You lose! Press Enter to try again.");
+                gameOver("You lose!");
             }
 
         }
@@ -221,13 +230,13 @@ namespace BrickGame
                 goRight = false;
             }
 
-            if(e.KeyCode==Keys.Enter && isGameOver == true)
+          /*  if(e.KeyCode==Keys.Enter && isGameOver == true)
             {
                 
                 removeBlocks();
                 placeBlocks();
                 soundPlayer.Play();
-            }
+            }*/
 
         }
 
