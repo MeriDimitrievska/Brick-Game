@@ -17,7 +17,5 @@
   
   
 ### Изглед на играта Brick Game
-![iepo1B](https://user-images.githubusercontent.com/80158055/173099646-82fc9c30-008e-4574-880c-de89c0e23a3f.gif)
 
-
-
+![vxQiAU](https://user-images.githubusercontent.com/80158055/173247240-1e0a8f3a-f917-4337-a10a-791135e6ec4d.gif)
